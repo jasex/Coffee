@@ -22,6 +22,15 @@ public class CalcServlet extends HttpServlet{
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String[] strs=req.getParameterValues("code");
+        //如果没买任何东西
+        if(null==strs){
+            Cookie cookie=new Cookie("null","1");
+            cookie.setMaxAge(10);
+            cookie.setPath("/");
+            resp.addCookie(cookie);
+            resp.sendRedirect("/index.jsp");
+            return;
+        }
         System.out.println(strs.length);
 
 
