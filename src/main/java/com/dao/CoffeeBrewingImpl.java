@@ -73,7 +73,7 @@ public class CoffeeBrewingImpl extends BaseDao implements CoffeeBrewingDao{
 
     @Override
     public int sell(CoffeeBrewing coffeeBrewing) {
-        String sql="update coffeeBrewing set sold=? where code=?;";
+        String sql="update coffeebrewing set sold=? where code=?;";
         Object[] params={coffeeBrewing.getSold(),coffeeBrewing.getCode()};
         //执行sql语句
         return this.executeUpdate(sql,params);
